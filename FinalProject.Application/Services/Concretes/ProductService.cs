@@ -9,18 +9,22 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Application.Services.Concretes
 {
+
     public class ProductService<T> : IProductService<T> where T : class
     {
+        //It takes three parameters: request, methodAdress and token.
+        //It serializes the request and sends it to the API with HttpClient.
+        //It deserializes the incoming request with JsonConvert and returns it as a response.
         public async Task<string> Consume(T request, string methodAdress, string token)
         {
             string BaseUrl = "http://service.stage.paximum.com/v2";
             HttpClient client = new HttpClient();
-            // Update port # in the following line.
             client.BaseAddress = new Uri(BaseUrl + methodAdress);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
+            //It checks whether the incoming request is an authentication request.
             if (token != "")
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 

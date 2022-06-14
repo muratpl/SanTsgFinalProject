@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Application.Services.Concretes
 {
+    //If the reservation is successful, it adds the reservation information to the reservations table in the database.
     public class ReservationService : IReservationService
     {
         private readonly IUnitOfWork _unitOfWork;

@@ -7,6 +7,7 @@ namespace FinalProject.API.Controllers
 {
     [ApiController]
     [Route("/api/[controller]")]
+    
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -21,9 +22,9 @@ namespace FinalProject.API.Controllers
         public IActionResult Get(int id)
         {
             return Ok();
-            //return Json(null);
         }
 
+        //
         [HttpPost("create")]
         public async Task<IActionResult> Create(User user)
         {

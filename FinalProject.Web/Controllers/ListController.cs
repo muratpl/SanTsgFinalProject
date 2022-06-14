@@ -53,8 +53,9 @@ namespace FinalProject.Web.Controllers
                 var offerId = TempData["OfferId"].ToString();
                 string transactionId = _paximumService.BeginTransactionAsync(offerId).Result;
                 string reservationNumber = _paximumService.SendReservationAsync(transactionId, reservation).Result;
-                
-                if(reservationNumber != "")
+
+                //Checking reservation result
+                if (reservationNumber != "")
                 {
                     reservation.ReservationNumber = reservationNumber;
                     reservation.Hotel = TempData["HotelName"].ToString();
