@@ -166,14 +166,14 @@ namespace FinalProject.Application.Services.Concretes
             hotelDetails.Add("Stars", result.stars.ToString());
 
             //Address check
-            if (result.address.addressLines != null)
+            if (result.address.addressLines.Count != 0)
             {
                 hotelDetails.Add("Address", result.address.addressLines[0]);
-                if (result.address.addressLines != null)
+                if (result.address.addressLines.Count != 0)
                     hotelDetails.Add("PostalCode", result.address.addressLines[1]);
             }
             //Images check
-            if(result.seasons[0].mediaFiles != null)
+            if(result.seasons[0].mediaFiles.Count != 0)
             {
                 hotelDetails.Add("ImageCount", result.seasons[0].mediaFiles.Count.ToString());
 
